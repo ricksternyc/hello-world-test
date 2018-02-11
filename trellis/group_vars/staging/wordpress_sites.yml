@@ -5,7 +5,7 @@
 wordpress_sites:
   18.219.159.74:
     site_hosts:
-      - canonical: 18.219.159.74
+      - canonical: helloworld.nonparticular.com
         # redirects:
         #   - otherdomain.com
     local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
@@ -15,7 +15,7 @@ wordpress_sites:
     multisite:
       enabled: false
     ssl:
-      enabled: false
+      enabled: true
       provider: letsencrypt
     cache:
       enabled: false
