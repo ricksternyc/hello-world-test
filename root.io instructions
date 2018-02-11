@@ -1,0 +1,46 @@
+##Setup Trellis and Bedrock##
+
+$ cd /dev
+
+mkdir *foldername* //this will be name of project (ex: hello-world.com)
+
+$ cd *foldername*
+
+Clone Trellis and Bedrock into this directory
+Updated links from https://github.com/roots/trellis
+
+$ git clone --depth=1 git@github.com:roots/trellis.git && rm -rf trellis/.git
+$ git clone --depth=1 git@github.com:roots/bedrock.git site && rm -rf site/.git
+
+brackets . //this opens folder. 
+
+Inside Trellis you need to edit 2 files to install and create a new wordpress site. 
+
+Go to....
+trellis/groups_vars/development/
+
+wordpress_sites.yml 
+create domains and test domain
+
+vault.yml
+create passwords and link domain
+
+Be very careful to make sure you've linked domains and created passwords correctly. Otherwise Virtual Machine 
+or test site may not work and need to start over. Once this is done and you've checked work, make sure Terminal is inside trellis directory
+
+$ cd trellis
+$ vagrant up
+
+Will now create virtual machine and go through Ansible playbook. It may ask for password once, can take several minutes to complete. 
+
+Once done, you can go to browser and open new wordpress site in browser, using canonical link you created in .yml files. 
+
+Congrats, now you can create a sage theme or work with existing theme and even deploy. 
+
+
+## Provision and Deploy Website ##
+https://roots.io/trellis/docs/remote-server-setup/
+
+Trellis has two main playbooks: dev.yml and server.yml. As mentioned in local development, Vagrant automatically runs the dev.yml playbook for us.
+
+For remote servers, you provision a server via the server.yml playbook. This leaves you with a server prepared to run a WordPress site, but without the actual codebase yet.
